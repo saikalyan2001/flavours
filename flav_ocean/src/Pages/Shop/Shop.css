@@ -1,0 +1,193 @@
+.shop-container {
+    position: relative;
+    padding: 20px;
+    height: 800px;
+    background-color: rgb(197, 194, 194);
+}
+
+.heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align heading and controls */
+    margin-bottom: 20px;
+}
+
+.shop-text {
+    padding: 20px;
+}
+
+.heading-shop {
+    margin-top: 20px; /* Remove default margin */
+    flex: 1; /* Take up remaining space */
+    font-size: 3rem;
+}
+
+.para-shop {
+    color: grey;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: space-between; /* Space items between top and bottom */
+    width: fit-content; /* Allow the width to adjust based on content */
+    position: relative; /* Required for absolute positioning of price */
+    margin: 0 auto;
+}
+
+.product-price {
+    position: absolute;
+    right: -1px;
+    top: 180px;
+    background-color: #c0e5f0; /* Background color for the price */
+    padding: 12px 20px;
+    font-size: 1.3rem;
+    z-index: 2;
+}
+
+
+
+.product-image {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1); /* Scale the image to 110% */
+}
+
+.product-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.product-rating {
+    color: gold;
+    font-size: 18px; /* Adjust the size as needed */
+}
+
+.add-to-cart-button {
+    background-color: rgb(218, 87, 108); /* Default background color */
+    color: white; /* Default text color */
+    border: none;
+    padding: 15px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    margin-top: 20px;
+}
+
+.add-to-cart-button::before,
+.add-to-cart-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    background-color: black; /* Background color for the sliding effect */
+    transition: transform 1s ease; /* Smooth animation */
+    z-index: 1; /* Ensure pseudo-elements are behind the text */
+}
+
+.add-to-cart-button::before {
+    left: 0; /* Start off-screen on the left */
+    transform: translateX(-100%);
+}
+
+.add-to-cart-button::after {
+    right: 0; /* Start off-screen on the right */
+    transform: translateX(100%);
+}
+
+.add-to-cart-button:hover::before {
+    transform: translateX(0); /* Slide in from the left */
+}
+
+.add-to-cart-button:hover::after {
+    transform: translateX(0); /* Slide in from the right */
+}
+
+.add-to-cart-button span {
+    position: relative;
+    z-index: 2; /* Keeps text on top of the pseudo-elements */
+}
+
+.add-to-cart-button:active {
+    background-color: rgb(218, 87, 108); /* Background color on active state */
+}
+
+/* Carousel-related styles */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px; /* Space between cards */
+  width: calc(100% * 3); /* Adjust to fit all duplicated items */
+}
+
+.product-card {
+  min-width: 250px; /* Width of one card */
+  flex-shrink: 0;
+  margin: 0 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 2rem;
+}
+
+.carousel-button.prev {
+  left: 0;
+}
+
+.carousel-button.next {
+  right: 0;
+}
+
+
